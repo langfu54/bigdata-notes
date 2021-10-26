@@ -28,3 +28,12 @@ describe –-topic first
 7）修改分区数
 [atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --
 alter –-topic first --partitions 3
+
+
+<dependencies>
+ <dependency>
+ <groupId>org.apache.kafka</groupId>
+ <artifactId>kafka-clients</artifactId>
+ <version>2.4.1</version>
+ </dependency>
+</dependencies>
