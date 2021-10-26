@@ -1,0 +1,30 @@
+ Kafka 命令行操作
+1）查看当前服务器中的所有 topic
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --zookeeper hadoop102:2181/kafka --list
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --list
+2）创建 topic
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --
+create --replication-factor 2 --partitions 1 --topic first
+选项说明：
+--topic 定义 topic 名
+--replication-factor 定义副本数
+--partitions 定义分区数
+3）删除 topic
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --
+delete --topic first
+4）发送消息
+[atguigu@hadoop102 kafka]$ bin/kafka-console-producer.sh --broker-list hadoop102:9092 -
+-topic first
+>hello world
+>atguigu atguigu
+5）消费消息
+[atguigu@hadoop102 kafka]$ bin/kafka-console-consumer.sh --bootstrap-server 
+hadoop102:9092 --topic first
+[atguigu@hadoop102 kafka]$ bin/kafka-console-consumer.sh --bootstrap-server 
+hadoop102:9092 --from-beginning --topic first --from-beginning：会把主题中现有的所有的数据都读取出来。
+6）查看某个 Topic 的详情
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --
+describe –-topic first
+7）修改分区数
+[atguigu@hadoop102 kafka]$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --
+alter –-topic first --partitions 3
