@@ -1,0 +1,11 @@
+1.org.apache.kafka.common.errors.TimeoutException:wait for Node Assignment Exception.
+
+处理：  首先需要确认kafka cluster 是否ping 通， telnet 端口是否连通。
+        在此基础上，可以测试 https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/ 
+        修改server.properties文件：
+        change the advertised.listeners configuration thus:
+        advertised.listeners=PLAINTEXT://asgard03.moffatt.me:9092
+        listeners=PLAINTEXT://0.0.0.0:9092
+        
+        
+   
